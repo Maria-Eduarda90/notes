@@ -17,9 +17,9 @@ export function App() {
       <div className="grid grid-cols-3 gap-6 auto-rows-[250px]">
         <NewCard />
 
-        <Card />
-        <Card />
-        <Card />
+        <Card date={new Date} content='Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, adipisci! Quibusdam ab dignissimos eaque, temporibus autem vero possimus dolores id quis molestiae asperiores nobis magni nulla tempore sequi impedit adipisci!' />
+        <Card date={new Date} content='Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, adipisci! Quibusdam ab dignissimos eaque, temporibus autem vero possimus dolores id quis molestiae asperiores nobis magni nulla tempore sequi impedit adipisci!' />
+        <Card date={new Date} content='Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, adipisci! Quibusdam ab dignissimos eaque, temporibus autem vero possimus dolores id quis molestiae asperiores nobis magni nulla tempore sequi impedit adipisci!' />
       </div>
     </div>
   )
