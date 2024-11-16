@@ -2,6 +2,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import { PlusOutlined } from "@ant-design/icons";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { toast } from "sonner";
 
 export function NewCard() {
 
@@ -24,6 +25,8 @@ export function NewCard() {
         event.preventDefault();
 
         console.log(content)
+
+        toast.success('Nota criada com sucesso');
     }
 
     return (
