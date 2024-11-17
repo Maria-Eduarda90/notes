@@ -4,7 +4,11 @@ import { PlusOutlined } from "@ant-design/icons";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { toast } from "sonner";
 
-export function NewCard() {
+interface NewNotCardProps {
+    onNoteCreated: (content: string) => void;
+}
+
+export function NewCard({ onNoteCreated }: NewNotCardProps) {
 
     const [shouldShowOnboarding, setShouldShowOnboarding] = useState(true);
     const [content, setContent] = useState('');
@@ -24,7 +28,10 @@ export function NewCard() {
     function handleSaveNote(event: FormEvent) {
         event.preventDefault();
 
-        console.log(content)
+        onNoteCreated(content);
+
+        setContent('');
+        setShouldShowOnboarding(true);
 
         toast.success('Nota criada com sucesso');
     }
@@ -52,19 +59,20 @@ export function NewCard() {
                             {
                                 shouldShowOnboarding ? (
                                     <p className='text-sm leading-6 text-slate-400'>
-                                        Comece <button className="font-medium text-lime-400 hover:underline">gravando uma nota</button> em audio ou se preferir <button className="font-medium text-lime-400 hover:underline" onClick={handleStartEditor}>utilize apenas texto</button>.
+                                        Comece <button className="font-medium text-teal-400 hover:underline">gravando uma nota</button> em audio ou se preferir <button className="font-medium text-teal-400 hover:underline" onClick={handleStartEditor}>utilize apenas texto</button>.
                                     </p>
                                 ) : (
                                     <textarea
                                         autoFocus
                                         className="text-sm leading-6 text-slate-400 bg-transparent resize-none flex-1 outline-none"
                                         onChange={handleContentChange}
+                                        value={content}
                                     />
                                 )
                             }
                         </div>
 
-                        <button type="submit" className="w-full bg-lime-400 py-4 text-center text-sm text-lime-950 outline-none font-medium hover:bg-lime-500">
+                        <button type="submit" className="w-full bg-teal-400 py-4 text-center text-sm text-lime-950 outline-none font-medium hover:bg-teal-500">
                             Salvar nota
                         </button>
                     </form>
